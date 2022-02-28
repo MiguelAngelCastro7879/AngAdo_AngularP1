@@ -93,26 +93,26 @@ export class DetallesComponent implements OnInit {
   eliminar(){
     this.peticion.delete(this.id).subscribe(
       respuesta=>{
-        if(respuesta.mensaje == 'Usuario Eliminado'){
           this.usuario = respuesta.user
           alert(respuesta.mensaje)
           this.router.navigateByUrl('/lista')
-        }else{
-          this.error = true
-        }
+      },
+      error=>{
+        this.error = true
+        alert("Ha habido un error al procesar la solicitud")
       })
   }
 
   modificar(){
     this.peticion.update(this.id,this.usuario).subscribe(
       respuesta=>{
-        if(respuesta.mensaje == 'Usuario Actualizado'){
           this.usuario = respuesta.user
           alert(respuesta.mensaje)
           this.router.navigateByUrl('/lista')
-        }else{
-          this.error = true
-        }
+      },
+      error=>{
+        this.error = true
+        alert("Ha habido un error al procesar la solicitud")
       })
 
   }

@@ -85,12 +85,12 @@ export class FormularioComponent implements OnInit {
 
     this.peticion.create(this.user).subscribe(
       respuesta =>{
-        if(respuesta.mensaje == 'Usuario creado correctamente'){
           this.router.navigateByUrl('lista');
           alert(respuesta.mensaje)
-        }else{
-          this.error = true
-        }
+      },
+      error=>{
+        this.error = true
+        alert("Ha habido un error al procesar la solicitud")
       })
 
   }
