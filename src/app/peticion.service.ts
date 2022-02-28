@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Respuesta1, Respuesta0 } from './Models/usuarios.response';
+import { Respuesta1, Respuesta0, User2, User3 } from './Models/usuarios.response';
 
 
 
@@ -18,5 +18,15 @@ export class PeticionService {
   }
   getOne(indice:any){
     return this.http.get<Respuesta1>(this.urlBase+'/'+indice)
+  }
+  create(info:User2){
+    console.log(info)
+    return this.http.post<Respuesta1>(this.urlBase,info)
+  }
+  delete(indice:any){
+    return this.http.delete<Respuesta1>(this.urlBase+'/'+indice)
+  }
+  update(indice:any, info: User3){
+    return this.http.put<Respuesta1>(this.urlBase+'/'+indice, info)
   }
 }

@@ -8,7 +8,9 @@ import {
   keyframes,
   // ...
 } from '@angular/animations';
-
+import { PeticionService } from 'src/app/peticion.service';
+import { User2 } from 'src/app/Models/usuarios.response';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-formulario',
   templateUrl: './formulario.component.html',
@@ -65,10 +67,29 @@ import {
   ],
 })
 export class FormularioComponent implements OnInit {
+  user:User2 = {
+    name: "",
+    username: "",
+    email: "",
+    password: "",
+    password_confirmation: "",
+  }
+  error = false
 
-  constructor() { }
-
+  constructor(private peticion: PeticionService, private router: Router) { }
   ngOnInit(): void {
+  }
+  send(){
+    this.peticion.create(this.user).subscribe(
+      respuesta =>{
+        if(respuesta.mensaje == 'Usuario creado correctamente'){
+          this.router.navigateByUrl('lista');
+          alert(respuesta.mensaje)
+        }else{
+          this.error = true
+        }
+      })
+
   }
 
 }

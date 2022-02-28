@@ -3,18 +3,48 @@
     <div class="col">
       <div class="card">
         <div class="card-body">
-          <h3 class="card-text">Name: {{usuario.name}}</h3> <br>
-          <h3 class="card-text">Username: {{usuario.username}}</h3> <br>
-          <h3 class="card-text">Email: {{usuario.email}}</h3> <br>
-          <div class="d-grid gap-2">
-            <a class="btn btn-danger" >Eliminar</a>
-            <a class="btn btn-success" >Actualizar</a>
+          <div *ngIf="!actualizar">
+            <h3 @DerechaIzquierda class="card-text">Name: {{usuario.name}}</h3> <br>
+            <h3 @DerechaIzquierda class="card-text">Username: {{usuario.username}}</h3> <br>
+            <h3 @DerechaIzquierda class="card-text">Email: {{usuario.email}}</h3> <br>
+            <div class="d-grid gap-2">
+              <a (click)="eliminar()" class="btn btn-danger" >Eliminar</a>
+              <a (click)="inputs()" class=" btn btn-success" >Actualizar</a>
+            </div>
+          </div>
+          <div *ngIf="actualizar">
+
+            <div @IzquierdaDerecha  class="mb-3">
+              <label for="inpName" class="form-label">Nombre</label>
+              <input type="text" [(ngModel)]="usuario.name" class=" bg-dark text-white form-control" id="inpName" name="inpName" placeholder="Juan Armando Gonzales Smith">
+            </div>
+            <div  @IzquierdaDerecha class="mb-3">
+              <label for="inpUsername" class="form-label">Username</label>
+              <input type="text" [(ngModel)]="usuario.username" class=" bg-dark text-white form-control" id="inpUsername" name="inpUsername" placeholder="juanin8582">
+            </div>
+            <div @IzquierdaDerecha class="mb-3">
+              <label for="inpEmail" class="form-label">Email address</label>
+              <input type="email" [(ngModel)]="usuario.email" class=" bg-dark text-white form-control" id="inpEmail" name="inpEmail" placeholder="juanin@gmail.com" aria-describedby="emailHelp">
+            </div>
+            <div class="d-grid gap-2">
+              <a (click)="modificar()" class="btn btn-success" >Finalizar</a>
+              <a (click)="inputs()" class="btn btn-secondary" >Cancelar</a>
+            </div>
           </div>
           <br>
-          <a routerLink="lista" class="btn btn-dark" >Volver</a>
+          <a routerLink="/lista" class="btn btn-dark" >Volver</a>
         </div>
       </div>
     </div>
   </div>
 </div>
 
+<div class="container card"  *ngIf="error">
+  <div class="row card-body align-items-center">
+    <div class="col align-self-center">
+      <div class="alert alert-danger">
+        HA HABIDO UN PROBLEMA PROCESANDO LA SOLICITUD, VUELVA A INTENTARLO
+      </div>
+    </div>
+  </div>
+</div>

@@ -16,6 +16,8 @@ import { FooterComponent } from './componentes/footer/footer.component';
 import { BindingComponent } from './componentes/binding/binding.component';
 import { ListaComponent } from './componentes/lista/lista.component';
 import { DetallesComponent } from './componentes/detalles/detalles.component';
+import { NotfoundComponent } from './componentes/notfound/notfound.component';
+import { NotificacionComponent } from './componentes/notificacion/notificacion.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,6 +29,8 @@ import { DetallesComponent } from './componentes/detalles/detalles.component';
     BindingComponent,
     ListaComponent,
     DetallesComponent,
+    NotfoundComponent,
+    NotificacionComponent,
   ],
   imports: [
     BrowserModule,

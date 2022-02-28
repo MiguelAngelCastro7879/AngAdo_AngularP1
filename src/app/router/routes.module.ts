@@ -7,7 +7,7 @@ import { HomeComponent } from '../componentes/home/home.component';
 import { BindingComponent } from '../componentes/binding/binding.component';
 import { ListaComponent } from '../componentes/lista/lista.component';
 import { DetallesComponent } from '../componentes/detalles/detalles.component';
-
+import { NotfoundComponent } from '../componentes/notfound/notfound.component';
 
 
 const routes: Routes = [
@@ -18,6 +18,7 @@ const routes: Routes = [
   {path: 'binding', component: BindingComponent},
   {path: 'lista', component: ListaComponent},
   {path: 'lista/:id/detalles', component: DetallesComponent},
+  {path: '**', component: NotfoundComponent},
 ];
 @NgModule({
   imports: [
