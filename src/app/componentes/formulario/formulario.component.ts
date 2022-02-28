@@ -11,6 +11,7 @@ import {
 import { PeticionService } from 'src/app/peticion.service';
 import { User2 } from 'src/app/Models/usuarios.response';
 import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-formulario',
   templateUrl: './formulario.component.html',
@@ -73,13 +74,15 @@ export class FormularioComponent implements OnInit {
     email: "",
     password: "",
     password_confirmation: "",
-  }
+  };
+
   error = false
 
   constructor(private peticion: PeticionService, private router: Router) { }
   ngOnInit(): void {
   }
   send(){
+
     this.peticion.create(this.user).subscribe(
       respuesta =>{
         if(respuesta.mensaje == 'Usuario creado correctamente'){

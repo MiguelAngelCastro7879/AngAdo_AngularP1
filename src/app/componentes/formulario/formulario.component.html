@@ -1,29 +1,71 @@
 <div class="container card" >
   <div class="row card-body align-items-center">
     <div class="col align-self-center">
-      <form>
+      <form #forma="ngForm">
         <div @IzquierdaDerecha  class="mb-3">
           <label for="inpName" class="form-label">Nombre</label>
-          <input type="text" [(ngModel)]="user.name" class=" bg-dark text-white form-control" id="inpName" name="inpName" placeholder="Juan Armando Gonzales Smith">
+          <input type="text" [(ngModel)]="user.name" name="name" minlength="5" class=" bg-dark text-white form-control"  id="inpName" #name="ngModel" required [ngClass]="{'is-valid': !name.invalid, 'is-invalid': name.invalid}" placeholder="Juan Armando Gonzales Smith"/>
+          <div class="invalid-feedback" *ngIf="name.invalid && (name.dirty || name.touched)">
+            <div *ngIf="name.errors?.['minlength']">
+                Introduzca un Nombre con 5 Caracteres Minimo
+            </div>
+            <div *ngIf="name.errors?.['required']">
+                Introduzca un Nombre Valido
+            </div>
+        </div> 
         </div>
         <div @DerechaIzquierda class="mb-3">
           <label for="inpUsername" class="form-label">Username</label>
-          <input type="text" [(ngModel)]="user.username" class=" bg-dark text-white form-control" id="inpUsername" name="inpUsername" placeholder="juanin8582">
+          <input type="text" [(ngModel)]="user.username" name="username" minlength="5" class=" bg-dark text-white form-control"  id="inpUsername" #username="ngModel" placeholder="juanin8582"  required [ngClass]="{'is-valid': !username.invalid, 'is-invalid': username.invalid}" />
+          <div class="invalid-feedback" *ngIf="username.invalid && (username.dirty || username.touched)">
+            <div *ngIf="username.errors?.['minlength']">
+                Introduzca un Usuario con 5 Caracteres Minimo
+            </div>
+            <div *ngIf="username.errors?.['required']">
+                Introduzca un Usuario Valido
+            </div>
+        </div> 
         </div>
         <div @IzquierdaDerecha class="mb-3">
           <label for="inpEmail" class="form-label">Email address</label>
-          <input type="email" [(ngModel)]="user.email" class=" bg-dark text-white form-control" id="inpEmail" name="inpEmail" placeholder="juanin@gmail.com" aria-describedby="emailHelp">
+          <input type="email" [(ngModel)]="user.email" name="email" class=" bg-dark text-white form-control" id="inpEmail" #email="ngModel" placeholder="juanin@gmail.com" aria-describedby="emailHelp" required [ngClass]="{'is-valid': !email.invalid, 'is-invalid': email.invalid}" pattern="^[a-zA-Z0-9._-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$">
           <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+          <div class="invalid-feedback" *ngIf="email.invalid && (email.dirty || email.touched)">
+            <div *ngIf="email.errors?.['required']">
+              Introduzca un correo electrónico válido por favor {{ email.value }}
+            </div>
+            <div *ngIf="email.errors && email.errors?.['pattern']">
+              El correo electrónico no sigue el formato correcto. Sigue este ejemplo: pedro@gmail.com
+              {{ email.value }}
+            </div>
+          </div>
         </div>
         <div @DerechaIzquierda class="mb-3">
           <label for="inpPassword" class="form-label">Password</label>
-          <input type="password"[(ngModel)]="user.password" class=" bg-dark text-white form-control" id="inpPassword" name="inpPassword" placeholder="123456789" >
+          <input type="password"[(ngModel)]="user.password" name="password" minlength="8" class=" bg-dark text-white form-control"  id="inpPassword" #password="ngModel" placeholder="123456789" required [ngClass]="{'is-valid': !password.invalid, 'is-invalid': password.invalid}" >
+          <div class="invalid-feedback" *ngIf="password.invalid && (password.dirty || password.touched)">
+            <div *ngIf="password.errors?.['minlength']">
+              Introduzca una Contraseña con 8 Caracteres Minimo
+            </div>
+            <div *ngIf="password.errors?.['required']">
+              Introduzca una contraseña por favor
+            </div>
+          </div>
         </div>
         <div @IzquierdaDerecha class="mb-3">
-          <label for="inpPassword2" class="form-label">Repeat password</label>
-          <input type="password" [(ngModel)]="user.password_confirmation" class=" bg-dark text-white form-control" id="inpPassword2" name="inpPassword2" placeholder="123456789" >
+          <label for="inpPassword2" class="form-label">password_confirmation</label>
+          <input type="password" [(ngModel)]="user.password_confirmation" class=" bg-dark text-white form-control"  id="inpPassword2" #password_confirmation="ngModel" name="password_confirmation" placeholder="123456789" required [ngClass]="{'is-valid': !password_confirmation.invalid, 'is-invalid': password_confirmation.invalid}" />
+          <div class="invalid-feedback" *ngIf="password_confirmation.invalid && (password_confirmation.dirty || password_confirmation.touched)">
+            <div *ngIf="password_confirmation.errors?.['required']">
+              Introduzca una contraseña por favor
+            </div>
+            <div *ngIf="password_confirmation.errors?.['minlength']">
+              Introduzca una Contraseña con 8 Caracteres Minimo
+            </div>
+            <div *ngIf="password !== password_confirmation || password_confirmation !== password">Las Contraseñas Deben Coincidir</div>
+          </div>
         </div>
-        <button @ArribaAbajo (click)="send()" type="submit" class="btn btn-primary">Submit</button>
+        <button @ArribaAbajo (click)="send()" [disabled]="!forma.valid"  type="submit" class="btn btn-primary">Submit</button>
       </form>
     </div>
   </div>
