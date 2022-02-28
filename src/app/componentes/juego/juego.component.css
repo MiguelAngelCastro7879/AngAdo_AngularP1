@@ -1,0 +1,17 @@
+button.Ejemplo_uno{
+  margin: 20px 0 20px 0;
+  background-color: #eee;
+  width: 200px;
+  height: 60px;
+  border: 1px solid #444;
+  border-radius: 20px;
+  color: #111;
+}
+.fondo{
+  margin-bottom: 15px;
+}
+div.cuadro{
+  margin-bottom: 15px;
+  background-color: green;
+  height: 50px;
+}

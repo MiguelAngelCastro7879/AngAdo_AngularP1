@@ -1,1 +1,30 @@
-<p>formulario works!</p>
+<div class="container card" >
+  <div class="row card-body align-items-center">
+    <div class="col align-self-center">
+      <form>
+        <div @IzquierdaDerecha  class="mb-3">
+          <label for="inpName" class="form-label">Nombre</label>
+          <input type="text" class=" bg-dark text-white form-control" id="inpName" name="inpName" placeholder="Juan Armando Gonzales Smith">
+        </div>
+        <div @DerechaIzquierda class="mb-3">
+          <label for="inpUsername" class="form-label">Username</label>
+          <input type="text" class=" bg-dark text-white form-control" id="inpUsername" name="inpUsername" placeholder="juanin8582">
+        </div>
+        <div @IzquierdaDerecha class="mb-3">
+          <label for="inpEmail" class="form-label">Email address</label>
+          <input type="email" class=" bg-dark text-white form-control" id="inpEmail" name="inpEmail" placeholder="juanin@gmail.com" aria-describedby="emailHelp">
+          <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+        <div @DerechaIzquierda class="mb-3">
+          <label for="inpPassword" class="form-label">Password</label>
+          <input type="password" class=" bg-dark text-white form-control" id="inpPassword" name="inpPassword" placeholder="123456789" >
+        </div>
+        <div @IzquierdaDerecha class="mb-3">
+          <label for="inpPassword2" class="form-label">Repeat password</label>
+          <input type="password" class=" bg-dark text-white form-control" id="inpPassword2" name="inpPassword2" placeholder="123456789" >
+        </div>
+        <button @ArribaAbajo type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>

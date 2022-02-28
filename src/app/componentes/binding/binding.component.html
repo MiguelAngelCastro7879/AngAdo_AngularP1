@@ -1,0 +1,39 @@
+<div class="container card">
+  <br>
+  <h2 class="mx-auto"> Formulario Reactivo </h2>
+  <div class="row card-body align-items-center">
+      <div class="col">
+          <div class="form-floating mb-3">
+              <input type="email"  class="form-control bg-dark text-white" id="floatingInput" placeholder="name@example.com" [(ngModel)]="Nombre" name="Nombre">
+              <label for="floatingInput">Nombre</label>
+          </div>
+          <div class="form-floating mb-3">
+              <input type="email"  class="form-control bg-dark text-white" id="floatingInput" placeholder="name@example.com" [(ngModel)]="Edad" name="Edad">
+              <label for="floatingInput">Edad</label>
+          </div>
+          <div class="form-floating mb-3">
+              <input type="email"  class="form-control bg-dark text-white" id="floatingInput" placeholder="name@example.com" [(ngModel)]="Estado" name="Estado">
+              <label for="floatingInput">Estado</label>
+          </div>
+          <div class="form-floating mb-3">
+              <input type="email"  class="form-control bg-dark text-white" id="floatingInput" placeholder="name@example.com" [(ngModel)]="Universidad" name="Universidad">
+              <label for="floatingInput">Universidad</label>
+          </div>
+      </div>
+      <div class="col">
+          <p>
+              <strong>Nombre</strong>: {{ Nombre }}
+          </p>
+          <p>
+              <strong>Edad</strong>: {{ Edad }}
+          </p>
+          <p>
+              <strong>Estado</strong>: {{ Estado }}
+          </p>
+          <p>
+              <strong>Universidad</strong>: {{ Universidad }}
+          </p>
+
+      </div>
+  </div>
+</div>
