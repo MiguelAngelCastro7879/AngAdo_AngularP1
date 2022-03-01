@@ -1,29 +1,23 @@
-<h1 align="center">Animaciones</h1><hr>
-<div align="center" class="contaniner">
-  <h2>Ejemplo 1 Boton animacion</h2>
-  <button class="Ejemplo_uno" type="button" name="button" [@botonAnimacion]="estadoBotonAnimacion" (click)="BotonAnimacion()">Animate</button>
-</div><br><br>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div [@viborita1]="estado" class="viborita">
+      </div>
+      <br>
+      <div [@viborita2]="estado" class="viborita">
+      </div>
+      <br>
+      <div [@viborita3]="estado" class="viborita">
+      </div>
+      <br>
+      <div [@viborita4]="estado" class="viborita">
+      </div>
 
-<div align="center" class="container">
-  <h2>Ejemplo 2 Estilos intermedios</h2>
-  <div [@EstilosIntermediosAnimacion]="estadoEstilosIntermedio" class="fondo"></div>
-
-  <button type="button" name="button" (click)="EstilosIntermedios()">Secuencia</button>
-</div><br><br>
-
-<div align="center" class="container">
-  <h2>Ejemplo 3 Retraso y Modo animacion</h2>
-  <div [@cuadroAnimacion]="estadoCuadro1" class="cuadro"></div>
-  <div [@cuadroAnimacion]="estadoCuadro2" class="cuadro"></div>
-
-  <button type="button" name="button" (click)="RetrasoYModoAnimacion()">Animate</button>
-</div><br><br>
-
-<div align="center" class="container">
-  <h2>Ejemplo 4 Reutilizar Animaciones</h2>
-
-  <div [@reutilizarAnimacion]="estadoReutilizarAnimacion" class="cuadro"></div>
-
-  <button type="button" name="button" (click)="reutilizarAnimacion()">Animate</button>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <button (click)="iniciar()" class="btn btn-primary">Iniciar Juego</button>
+  </div>
 </div>
 
